@@ -1,12 +1,819 @@
-<html>
+<!doctype html>
+<html lang="pt-BR">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>José • Portfólio</title>
 
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons (opcional, mas ajuda muito) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root{
+      --brand:#0d6efd;
+      --ink:#0b1220;
+      --muted:#6c757d;
+      --card:#0f172a;
+      --soft:#f6f8fb;
+    }
+
+    body{
+      color: var(--ink);
+      background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 40%, #ffffff 100%);
+    }
+
+    .hero{
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(13,110,253,.12), transparent 55%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(32,201,151,.12), transparent 45%),
+                  linear-gradient(180deg, #ffffff, #f7f9ff);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+
+    .badge-soft{
+      background: rgba(13,110,253,.08);
+      color: var(--brand);
+      border: 1px solid rgba(13,110,253,.12);
+      font-weight: 600;
+    }
+
+    .glass{
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 10px 40px rgba(15,23,42,.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .section{
+      padding: 72px 0;
+    }
+
+    .section-title{
+      letter-spacing: -.02em;
+    }
+
+    .mini{
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .card{
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 10px 30px rgba(15,23,42,.06);
+    }
+
+    .chip{
+      display:inline-flex;
+      gap:.5rem;
+      align-items:center;
+      padding:.35rem .7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: #fff;
+      font-size: .9rem;
+      color: #111827;
+    }
+
+    .chip i{ color: var(--brand); }
+
+    .timeline{
+      border-left: 2px dashed rgba(13,110,253,.35);
+      padding-left: 1.25rem;
+    }
+    .timeline .item{
+      position: relative;
+      padding: .25rem 0 1.25rem 0;
+    }
+    .timeline .item::before{
+      content:"";
+      position:absolute;
+      left:-1.45rem;
+      top:.5rem;
+      width:.75rem;
+      height:.75rem;
+      border-radius: 999px;
+      background: var(--brand);
+      box-shadow: 0 0 0 4px rgba(13,110,253,.12);
+    }
+
+    .project-card:hover{
+      transform: translateY(-2px);
+      transition: .2s ease;
+    }
+
+    .footer{
+      border-top: 1px solid rgba(0,0,0,.06);
+      background: #fff;
+    }
+
+    .navbar-brand strong{ letter-spacing: -.02em; }
+
+    .toast-container{
+      z-index: 1080;
+    }
+
+    .link-clean{
+      text-decoration: none;
+    }
+  </style>
 </head>
+<body data-bs-spy="scroll" data-bs-target="#topNav" data-bs-smooth-scroll="true" tabindex="0">
 
-<body>
-<h1>Oi pessoal!!!!</h1>
-<p>esse é um parágrafo pessoal, onde a gente usa para escrever.</p>
+  <!-- NAV -->
+  <nav id="topNav" class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio">
+        <strong>José</strong> <span class="text-secondary">• Professor & Consultor</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navItems" aria-controls="navItems" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navItems">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#aulas">Aulas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#conteudos">Conteúdos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+        <div class="d-flex gap-2 ms-lg-3">
+          <button class="btn btn-outline-primary btn-sm" id="btnTema" type="button" title="Alternar tema">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+          <a class="btn btn-primary btn-sm" href="#contato">
+            Vamos conversar <i class="bi bi-arrow-right-short"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
+  <!-- HERO -->
+  <header id="inicio" class="hero">
+    <div class="container py-5">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="badge badge-soft rounded-pill px-3 py-2 mb-3">
+            Marketing • Publicidade • IA • Design • Webdesign • Administração
+          </span>
 
+          <h1 class="display-5 fw-bold mb-3 section-title">
+            Ensino superior com foco em prática, estratégia e tecnologia
+          </h1>
+
+          <p class="lead text-secondary mb-4">
+            Sou o José, professor do nível superior. Conecto fundamentos sólidos com ferramentas atuais para formar
+            profissionais capazes de planejar, criar, medir e melhorar resultados, com pensamento crítico e ética.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="chip"><i class="bi bi-graph-up-arrow"></i> Aprendizagem orientada a projetos</span>
+            <span class="chip"><i class="bi bi-lightbulb"></i> Clareza + método</span>
+            <span class="chip"><i class="bi bi-cpu"></i> IA aplicada com responsabilidade</span>
+            <span class="chip"><i class="bi bi-brush"></i> Design com intenção</span>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary btn-lg" href="#aulas">
+              Ver abordagem de ensino <i class="bi bi-mortarboard"></i>
+            </a>
+            <button class="btn btn-outline-secondary btn-lg" id="btnCopiarEmail" type="button">
+              Copiar e-mail <i class="bi bi-envelope"></i>
+            </button>
+          </div>
+
+          <p class="mini mt-3 mb-0">
+            Disponível para parcerias acadêmicas, palestras e projetos de consultoria educacional.
+          </p>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="glass rounded-4 p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div>
+                <div class="fw-semibold">Resumo rápido</div>
+                <div class="mini">O que você pode esperar das minhas aulas</div>
+              </div>
+              <span class="badge text-bg-primary rounded-pill">2026</span>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="p-3 rounded-3 bg-white border">
+                  <div class="fw-semibold"><i class="bi bi-check2-circle text-primary"></i> Objetivos claros</div>
+                  <div class="mini">Rubricas, critérios e entregas bem definidos desde o início.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-3 rounded-3 bg-white border">
+                  <div class="fw-semibold"><i class="bi bi-check2-circle text-primary"></i> Aulas aplicáveis</div>
+                  <div class="mini">Casos, exercícios guiados e projetos que simulam desafios reais.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-3 rounded-3 bg-white border">
+                  <div class="fw-semibold"><i class="bi bi-check2-circle text-primary"></i> Feedback que evolui</div>
+                  <div class="mini">Retorno objetivo, com passos concretos para melhorar.</div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-outline-primary btn-sm" href="#projetos"><i class="bi bi-folder2-open"></i> Portfólio</a>
+              <a class="btn btn-outline-primary btn-sm" href="#conteudos"><i class="bi bi-journal-text"></i> Materiais</a>
+              <a class="btn btn-outline-primary btn-sm" href="#contato"><i class="bi bi-chat-dots"></i> Contato</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <h2 class="h1 fw-bold section-title mb-3">Sobre</h2>
+          <p class="text-secondary mb-3">
+            Minha atuação reúne pensamento estratégico, comunicação, criatividade e tecnologia. Eu traduzo conceitos
+            complexos em passos executáveis, ajudando estudantes a construírem repertório e autonomia.
+          </p>
+          <p class="text-secondary mb-0">
+            Em sala, valorizo planejamento, experimentação e análise. O objetivo é que cada aluno consiga justificar
+            escolhas, medir impacto e aprender a melhorar continuamente.
+          </p>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-bullseye text-primary"></i> Foco em resultado</div>
+                  <div class="mini">Estratégia, posicionamento, métricas e tomada de decisão com método.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-bezier2 text-primary"></i> Criatividade com processo</div>
+                  <div class="mini">Briefing, ideação, prototipação, melhoria e apresentação profissional.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-cpu text-primary"></i> IA aplicada</div>
+                  <div class="mini">Uso de IA para pesquisa, escrita, design e análise, com ética e criticidade.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-window text-primary"></i> Web e produto</div>
+                  <div class="mini">UX, interfaces, noções de front-end e entregas organizadas para o mercado.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <div class="fw-semibold mb-2">Linhas de atuação</div>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="chip"><i class="bi bi-megaphone"></i> Branding e Campanhas</span>
+              <span class="chip"><i class="bi bi-diagram-3"></i> Planejamento de Marketing</span>
+              <span class="chip"><i class="bi bi-ui-checks"></i> UX e Portfólios</span>
+              <span class="chip"><i class="bi bi-bar-chart-line"></i> Métricas e Performance</span>
+              <span class="chip"><i class="bi bi-kanban"></i> Projetos e Rotina</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AULAS -->
+  <section id="aulas" class="section bg-white border-top border-bottom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h2 class="h1 fw-bold section-title mb-3">Como são minhas aulas</h2>
+          <p class="text-secondary mb-3">
+            Trabalho com uma didática direta e organizada. A cada encontro, o aluno sabe o que está construindo,
+            por que aquilo importa e como aplicar.
+          </p>
+
+          <div class="timeline">
+            <div class="item">
+              <div class="fw-semibold">1) Contexto e objetivo</div>
+              <div class="mini">Começo pelo “por quê” e pelo critério de qualidade da entrega.</div>
+            </div>
+            <div class="item">
+              <div class="fw-semibold">2) Ferramentas e repertório</div>
+              <div class="mini">Modelos, referências, checklists e exemplos bem escolhidos.</div>
+            </div>
+            <div class="item">
+              <div class="fw-semibold">3) Mão na massa</div>
+              <div class="mini">Exercícios guiados e projetos em etapas, com revisão incremental.</div>
+            </div>
+            <div class="item">
+              <div class="fw-semibold">4) Feedback e evolução</div>
+              <div class="mini">Retorno com próximos passos, reforçando autonomia e padrão profissional.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-mortarboard text-primary"></i> Aprendizagem ativa</div>
+                  <div class="mini">Projetos curtos e contínuos, com entregas que viram portfólio.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-clipboard-check text-primary"></i> Avaliação transparente</div>
+                  <div class="mini">Critérios claros, rubricas e acompanhamento do progresso.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-people text-primary"></i> Sala colaborativa</div>
+                  <div class="mini">Troca entre grupos, leitura crítica e defesa de ideias com respeito.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-shield-check text-primary"></i> Ética e responsabilidade</div>
+                  <div class="mini">IA, dados e comunicação com foco em impacto, verdade e contexto.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 p-4 rounded-4 border bg-light">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-quote fs-2 text-primary"></i>
+              <div>
+                <div class="fw-semibold">Frase que guia meu trabalho</div>
+                <div class="text-secondary">
+                  Ensinar é oferecer estrutura, repertório e desafio na medida certa, para que o aluno consiga
+                  construir, explicar e melhorar.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos" class="section">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-3">
+        <div>
+          <h2 class="h1 fw-bold section-title mb-1">Projetos e cases</h2>
+          <p class="text-secondary mb-0">Exemplos do tipo de entrega que eu ajudo a construir em aula.</p>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-primary btn-sm" data-filter="all">Tudo</button>
+          <button class="btn btn-outline-primary btn-sm" data-filter="marketing">Marketing</button>
+          <button class="btn btn-outline-primary btn-sm" data-filter="design">Design</button>
+          <button class="btn btn-outline-primary btn-sm" data-filter="ia">IA</button>
+          <button class="btn btn-outline-primary btn-sm" data-filter="web">Web</button>
+        </div>
+      </div>
+
+      <div class="row g-3" id="gridProjetos">
+        <!-- Cards (você pode trocar títulos e links) -->
+        <div class="col-md-6 col-lg-4 project-item" data-tags="marketing">
+          <div class="card rounded-4 h-100 project-card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="fw-semibold">Plano de Marketing 360</div>
+                <span class="badge text-bg-light border">Marketing</span>
+              </div>
+              <p class="mini mt-2 mb-3">Diagnóstico, público, posicionamento, canais, cronograma e KPIs.</p>
+              <a class="link-clean" href="https://www.behance.net/" target="_blank" rel="noopener">
+                Ver exemplo <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-tags="design">
+          <div class="card rounded-4 h-100 project-card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="fw-semibold">Identidade Visual e Branding</div>
+                <span class="badge text-bg-light border">Design</span>
+              </div>
+              <p class="mini mt-2 mb-3">Conceito, sistema visual, aplicações e apresentação profissional.</p>
+              <a class="link-clean" href="https://dribbble.com/" target="_blank" rel="noopener">
+                Ver exemplo <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-tags="ia">
+          <div class="card rounded-4 h-100 project-card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="fw-semibold">IA aplicada a conteúdo</div>
+                <span class="badge text-bg-light border">IA</span>
+              </div>
+              <p class="mini mt-2 mb-3">Briefing, prompts, validação, estilo e checklist de qualidade.</p>
+              <a class="link-clean" href="https://www.notion.so/" target="_blank" rel="noopener">
+                Ver exemplo <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-tags="web">
+          <div class="card rounded-4 h-100 project-card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="fw-semibold">Landing Page com UX</div>
+                <span class="badge text-bg-light border">Web</span>
+              </div>
+              <p class="mini mt-2 mb-3">Arquitetura, copy, hierarquia visual e protótipo navegável.</p>
+              <a class="link-clean" href="https://github.com/" target="_blank" rel="noopener">
+                Ver exemplo <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-tags="marketing ia">
+          <div class="card rounded-4 h-100 project-card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="fw-semibold">Dashboard de métricas</div>
+                <span class="badge text-bg-light border">Marketing + IA</span>
+              </div>
+              <p class="mini mt-2 mb-3">Indicadores, leitura de dados e recomendações acionáveis.</p>
+              <a class="link-clean" href="https://lookerstudio.google.com/" target="_blank" rel="noopener">
+                Ver exemplo <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 project-item" data-tags="design web">
+          <div class="card rounded-4 h-100 project-card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="fw-semibold">Portfólio e apresentação</div>
+                <span class="badge text-bg-light border">Design + Web</span>
+              </div>
+              <p class="mini mt-2 mb-3">Storytelling, estrutura, versão web e PDF para seleção.</p>
+              <a class="link-clean" href="https://www.canva.com/" target="_blank" rel="noopener">
+                Ver exemplo <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 mini">
+        Dica: troque os links acima pelos seus (LinkedIn, Lattes, GitHub, Behance, site da instituição etc.).
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDOS -->
+  <section id="conteudos" class="section bg-white border-top border-bottom">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <h2 class="h1 fw-bold section-title mb-3">Conteúdos e materiais</h2>
+          <p class="text-secondary mb-3">
+            Organizo materiais de forma objetiva e útil. Quando faz sentido, forneço templates, checklists e guias
+            de execução para apoiar o estudo e a prática.
+          </p>
+
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-primary" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+              <i class="bi bi-linkedin"></i> LinkedIn
+            </a>
+            <a class="btn btn-outline-primary" href="https://scholar.google.com/" target="_blank" rel="noopener">
+              <i class="bi bi-mortarboard"></i> Google Scholar
+            </a>
+            <a class="btn btn-outline-primary" href="https://lattes.cnpq.br/" target="_blank" rel="noopener">
+              <i class="bi bi-file-earmark-text"></i> Currículo Lattes
+            </a>
+            <a class="btn btn-outline-primary" href="https://github.com/" target="_blank" rel="noopener">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="card rounded-4">
+            <div class="card-body">
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div>
+                  <div class="fw-semibold">Newsletter / Atualizações</div>
+                  <div class="mini">Receba temas de aula, referências e ferramentas que valem o tempo.</div>
+                </div>
+                <span class="badge text-bg-light border">exemplo</span>
+              </div>
+
+              <form class="row g-2 mt-3" id="formNewsletter">
+                <div class="col-md-8">
+                  <label class="visually-hidden" for="emailNewsletter">Seu e-mail</label>
+                  <input type="email" class="form-control" id="emailNewsletter" placeholder="seuemail@exemplo.com" required>
+                </div>
+                <div class="col-md-4 d-grid">
+                  <button class="btn btn-primary" type="submit">
+                    Inscrever <i class="bi bi-send"></i>
+                  </button>
+                </div>
+                <div class="mini text-secondary">
+                  Este formulário é demonstrativo. Você pode integrar com Mailchimp, Brevo ou Google Forms depois.
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-1">
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-journal-bookmark text-primary"></i> Guias de estudo</div>
+                  <div class="mini">Leitura dirigida e exercícios que aceleram o entendimento.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card rounded-4 h-100">
+                <div class="card-body">
+                  <div class="fw-semibold mb-2"><i class="bi bi-card-checklist text-primary"></i> Templates</div>
+                  <div class="mini">Briefing, rubricas, canvas de estratégia e checklists de entrega.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <h2 class="h1 fw-bold section-title mb-3">Contato</h2>
+          <p class="text-secondary mb-3">
+            Quer convidar para uma palestra, propor uma parceria ou conversar sobre um projeto?
+            Me mande uma mensagem. Eu respondo com objetividade e encaminhamento claro.
+          </p>
+
+          <div class="p-4 rounded-4 bg-white border">
+            <div class="fw-semibold mb-1"><i class="bi bi-envelope text-primary"></i> E-mail</div>
+            <div class="mini mb-3">
+              <span id="emailTexto">jose.professor@exemplo.com</span>
+              <button class="btn btn-sm btn-outline-secondary ms-2" id="btnCopiarEmail2" type="button">
+                Copiar
+              </button>
+            </div>
+
+            <div class="fw-semibold mb-1"><i class="bi bi-geo-alt text-primary"></i> Local</div>
+            <div class="mini mb-3">Brasil (atendimento remoto e presencial, conforme agenda)</div>
+
+            <div class="fw-semibold mb-2"><i class="bi bi-share text-primary"></i> Redes</div>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-outline-primary btn-sm" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+                LinkedIn <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+              <a class="btn btn-outline-primary btn-sm" href="https://www.instagram.com/" target="_blank" rel="noopener">
+                Instagram <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+              <a class="btn btn-outline-primary btn-sm" href="https://www.youtube.com/" target="_blank" rel="noopener">
+                YouTube <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="card rounded-4">
+            <div class="card-body">
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div>
+                  <div class="fw-semibold">Mensagem rápida</div>
+                  <div class="mini">Formulário demonstrativo (envia para uma notificação local).</div>
+                </div>
+                <span class="badge text-bg-light border">demo</span>
+              </div>
+
+              <form class="row g-3 mt-2" id="formContato">
+                <div class="col-md-6">
+                  <label for="nome" class="form-label">Seu nome</label>
+                  <input type="text" class="form-control" id="nome" placeholder="Seu nome" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Seu e-mail</label>
+                  <input type="email" class="form-control" id="email" placeholder="seuemail@exemplo.com" required>
+                </div>
+                <div class="col-12">
+                  <label for="assunto" class="form-label">Assunto</label>
+                  <input type="text" class="form-control" id="assunto" placeholder="Parceria, palestra, orientação, projeto..." required>
+                </div>
+                <div class="col-12">
+                  <label for="mensagem" class="form-label">Mensagem</label>
+                  <textarea class="form-control" id="mensagem" rows="5" placeholder="Conte um pouco do que você precisa..." required></textarea>
+                </div>
+                <div class="col-12 d-grid">
+                  <button class="btn btn-primary btn-lg" type="submit">
+                    Enviar <i class="bi bi-send"></i>
+                  </button>
+                </div>
+                <div class="mini text-secondary">
+                  Você pode substituir o JavaScript para enviar para e-mail, WhatsApp, Formspree, Google Forms etc.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer py-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="mini">
+        © <span id="ano"></span> José. Portfólio acadêmico e profissional.
+      </div>
+      <div class="d-flex gap-3">
+        <a class="mini text-decoration-none" href="#inicio">Topo</a>
+        <a class="mini text-decoration-none" href="#sobre">Sobre</a>
+        <a class="mini text-decoration-none" href="#contato">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toasts -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toastOk" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMsg">Pronto!</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fechar"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Ajuste rápido: troque aqui pelos seus dados reais
+    const PERFIL = {
+      nome: "José",
+      email: "jose.professor@exemplo.com",
+      links: {
+        linkedin: "https://www.linkedin.com/",
+        lattes: "https://lattes.cnpq.br/",
+        github: "https://github.com/",
+        behance: "https://www.behance.net/"
+      }
+    };
+
+    // Ano no rodapé
+    document.getElementById("ano").textContent = new Date().getFullYear();
+
+    // Email (texto)
+    const emailTexto = document.getElementById("emailTexto");
+    emailTexto.textContent = PERFIL.email;
+
+    // Toast helper
+    const toastEl = document.getElementById("toastOk");
+    const toastMsg = document.getElementById("toastMsg");
+    const toast = new bootstrap.Toast(toastEl, { delay: 2400 });
+
+    function notify(msg){
+      toastMsg.textContent = msg;
+      toast.show();
+    }
+
+    // Copiar email
+    async function copiarEmail(){
+      try{
+        await navigator.clipboard.writeText(PERFIL.email);
+        notify("E-mail copiado: " + PERFIL.email);
+      }catch(e){
+        notify("Não consegui copiar automaticamente. Selecione e copie o e-mail manualmente.");
+      }
+    }
+
+    document.getElementById("btnCopiarEmail").addEventListener("click", copiarEmail);
+    document.getElementById("btnCopiarEmail2").addEventListener("click", copiarEmail);
+
+    // Filtro de projetos
+    const grid = document.getElementById("gridProjetos");
+    const buttons = document.querySelectorAll("[data-filter]");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const f = btn.getAttribute("data-filter");
+        const items = grid.querySelectorAll(".project-item");
+
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        items.forEach(it => {
+          const tags = (it.getAttribute("data-tags") || "").split(" ");
+          const show = (f === "all") || tags.includes(f);
+          it.style.display = show ? "" : "none";
+        });
+      });
+    });
+
+    // Tema (claro/escuro simples)
+    const btnTema = document.getElementById("btnTema");
+    const keyTema = "portfolio_tema";
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    function setTema(mode){
+      const dark = mode === "dark";
+      document.documentElement.setAttribute("data-theme", mode);
+
+      // Troca básica de cores sem depender do Bootstrap Theme
+      document.body.style.background = dark
+        ? "linear-gradient(180deg, #0b1220 0%, #0b1220 40%, #0b1220 100%)"
+        : "linear-gradient(180deg, #ffffff 0%, #f7f9ff 40%, #ffffff 100%)";
+
+      document.body.style.color = dark ? "#e5e7eb" : "#0b1220";
+
+      // Ajuste de cartões e seções
+      document.querySelectorAll(".card, .glass, .footer, .navbar, .bg-white").forEach(el => {
+        el.style.background = dark ? "rgba(15,23,42,.85)" : "";
+        el.style.color = dark ? "#e5e7eb" : "";
+        el.style.borderColor = dark ? "rgba(255,255,255,.08)" : "";
+      });
+
+      // Ajuste de textos secundários
+      document.querySelectorAll(".text-secondary, .mini").forEach(el => {
+        el.style.color = dark ? "rgba(229,231,235,.72)" : "";
+      });
+
+      btnTema.innerHTML = dark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
+      localStorage.setItem(keyTema, mode);
+    }
+
+    const temaSalvo = localStorage.getItem(keyTema);
+    setTema(temaSalvo || (prefersDark ? "dark" : "light"));
+
+    btnTema.addEventListener("click", () => {
+      const atual = localStorage.getItem(keyTema) || "light";
+      setTema(atual === "dark" ? "light" : "dark");
+      notify("Tema alternado.");
+    });
+
+    // Newsletter demo
+    document.getElementById("formNewsletter").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const v = document.getElementById("emailNewsletter").value.trim();
+      notify("Inscrição registrada (demo): " + v);
+      e.target.reset();
+    });
+
+    // Contato demo
+    document.getElementById("formContato").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value.trim();
+      notify("Mensagem enviada (demo). Obrigado, " + nome + "!");
+      e.target.reset();
+    });
+  </script>
 </body>
 </html>
